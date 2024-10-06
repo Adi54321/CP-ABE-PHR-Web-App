@@ -1,27 +1,77 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f9;
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.signup-box {
+  width: 350px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 10px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.icon {
+  font-size: 60px;
+  color: #795548;
+}
+
+header {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #333;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+form select {
+  width: 270px;  /* Adjust the width of the dropdown */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
 button {
-  background-color: #2d6cdf;
+  width: 100%;
+  padding: 10px;
+  background-color: #3f51b5;
   color: white;
   border: none;
-  padding: 10px 20px;
-  cursor: pointer;
+  border-radius: 5px;
   font-size: 16px;
-  margin: 5px;
+  cursor: pointer;
 }
 
 button:hover {
-  background-color: #1a4f9c;
-}
-
-input {
-  padding: 10px;
-  margin: 10px 0;
-  width: 100%;
-  max-width: 300px;
+  background-color: #303f9f;
 }

@@ -1,25 +1,41 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Dashboard from './components/Dashboard';
-import MyPHR from './components/MyPHR';
-import Header from './components/Header';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import Register from "./pages/Register.js";
+import Login from "./pages/Login.js";
+import Layout from "./components/Layout.js";
+import HomePage from "./pages/HomePage.js"
+import PatientDashboard from "./pages/PatientDashboard.js";
 
-function App() {
-    return (
-        <Router>
-            <Header />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Signup />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/myphr" element={<MyPHR />} />  {/* Route for PHR page */}
-            </Routes>
-        </Router>
-    );
-}
+// add not found page for better UX
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/patient-dashboard",
+        element: <PatientDashboard />,
+      },
+    ],
+  },
+]);
 
-export default App;
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>,
+);
