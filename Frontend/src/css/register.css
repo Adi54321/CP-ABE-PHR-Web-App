@@ -1,0 +1,112 @@
+/* Container styling */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f0f2f5; /* Light background for contrast */
+    padding: 20px;
+}
+
+/* Form box styling */
+.register-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+/* Title styling */
+.register-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Flex container for first name and last name */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* Input field styling */
+.register-box input[type="text"],
+.register-box input[type="email"],
+.register-box input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+/* Change input border on focus */
+.register-box input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Styling for the radio button group */
+.radio-group {
+    display: flex;
+    justify-content: center; /* Center align the radio buttons */
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px; /* Space between the Doctor and Patients labels */
+}
+
+/* Styling for the individual radio label */
+.radio-group label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Styling for the radio button */
+.radio-group input[type="radio"] {
+    accent-color: #007bff; /* Set the color for the radio button */
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+/* Button styling */
+.register-box button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.register-box button:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+}
+
+.register-box button:active {
+    transform: scale(0.98);
+}
+
+/* Optional: Add styles for labels */
+.register-box label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
