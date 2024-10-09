@@ -1,25 +1,26 @@
 import React from 'react';
 import '../css/HomePage.css'; // Import CSS file for styling
 import { Link } from "react-router-dom";
+import healthRecord from '../assets/images/health-record.png';
 
 const HomePage = () => {
   return (
     <div className="home-container">
-      {/* <header className="header">
+      {/* 
+      <header className="header">
         <div className="logo-container">
           <img src="your-logo.png" alt="Logo" className="logo" />
         </div>
         <div className="nav-buttons">
-        <Link to="/login">
-          <button className="nav-button">Login</button>
-              </Link>
-       
+          <Link to="/login">
+            <button className="nav-button">Login</button>
+          </Link>
           <Link to="/register">
-          <button className="nav-button">Register</button>
-              </Link>
- 
+            <button className="nav-button">Register</button>
+          </Link>
         </div>
-      </header> */}
+      </header> 
+      */}
 
       <main className="main-content">
         <div className="text-box">
@@ -27,13 +28,12 @@ const HomePage = () => {
           <p>An Application for managing your Personal Health Record</p>
 
           <Link to="/register">
-          <button className="register-now-button">Register Now</button>
+            <button className="register-now-button">Register Now</button>
           </Link>
-
         </div>
         <div className="image-container">
           <img
-            src="your-image.png" // Replace with your image path
+            src={healthRecord}
             alt="Health Records"
             className="image"
           />
