@@ -32,7 +32,7 @@
     padding-right: 1rem;
 }
 
-.md\\:px-20 {
+.md\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
 }
@@ -64,11 +64,11 @@
     color: #fff;
 }
 
-.hover\\:text-blue-500:hover {
+.hover\:text-blue-500:hover {
     color: #3b82f6; /* Tailwind's blue-500 */
 }
 
-.hover\\:text-gray-300:hover {
+.hover\:text-gray-300:hover {
     color: #d1d5db; /* Tailwind's gray-300 */
 }
 
@@ -108,7 +108,7 @@
 }
 
 /* Responsive navbar items */
-.md\\:inline {
+.md\:inline {
     display: inline;
 }
 
@@ -139,11 +139,20 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Logo styling */
 .logo {
     font-size: 24px;
     font-weight: bold;
     color: #333;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px; /* Set the logo width */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 8px; /* Add space between the logo and text */
 }
 
 .nav-buttons {
