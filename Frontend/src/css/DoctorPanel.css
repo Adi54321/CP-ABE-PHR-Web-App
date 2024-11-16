@@ -1,0 +1,36 @@
+/* DoctorPanel.css */
+.doctor-panel {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .doctor-panel table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  .doctor-panel th,
+  .doctor-panel td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .doctor-panel th {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  .doctor-panel td {
+    background-color: #ffffff;
+  }
+  
+  .doctor-panel thead {
+    border-bottom: 2px solid #007BFF;
+  }
+  

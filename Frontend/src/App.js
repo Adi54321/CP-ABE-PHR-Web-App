@@ -10,14 +10,15 @@ import PatientDashboard from "./pages/PatientDashboard.js";
 import DoctorDashboard from "./pages/DoctorDashboard.js";
 import AppointmentDashboard from "./pages/AppointmentDashboard.js";
 import VaccinationDashboard from "./pages/VaccinationDashboard.js";
-import ErrorPage from "./pages/ErrorPage.js"; // Import the ErrorPage component
-
+import ErrorPage from "./pages/ErrorPage.js";
+import PatientPanel from "./pages/PatientPanel.js"; // Import the PatientPanel component
+import DoctorPanel from "./pages/DoctorPanel.js"; // Import the DoctorPanel component
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <ErrorPage />, // Set the error element for this route
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -40,16 +41,24 @@ const router = createBrowserRouter([
         element: <PatientDashboard />,
       },
       {
-        path: "/book-appointment", // Route for the appointment dashboard
+        path: "/book-appointment",
         element: <AppointmentDashboard />,
       },
       {
-        path: "/vaccination", // Route for the vaccination dashboard
+        path: "/vaccination",
         element: <VaccinationDashboard />,
       },
       {
+        path: "/patient-panel", // New route for PatientPanel
+        element: <PatientPanel />,
+      },
+      {
+        path: "/doctor-panel", // New route for DoctorPanel
+        element: <DoctorPanel />,
+      },
+      {
         path: "*", // Catch-all route for non-existent paths
-        element: <ErrorPage />, // Render the error page for any unmatched route
+        element: <ErrorPage />,
       },
     ],
   },
