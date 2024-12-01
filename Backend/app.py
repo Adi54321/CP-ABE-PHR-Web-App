@@ -1,22 +1,16 @@
-from flask import Flask, jsonify
+from flask import Flask, g
 from flask_cors import CORS
+import logging #for hashing passwords (in development)
+from routes.auth import auth_bp # Import the routes after the app is created, from routes.auth import auth_bp
 
-# Initialize the Flask app
 app = Flask(__name__)
+CORS(app) 
 
-# Add CORS support to allow requests from the frontend
-CORS(app)
+app.register_blueprint(auth_bp)
 
-# Define the home route
-@app.route('/')
-def home():
-    return "Hello, Flask!"
+# #initialize the keys
+# public_key, master_key = setup()
 
-# Set up an API route to handle requests from the frontend
-@app.route('/api/data', methods=['GET'])
-def get_data():
-    return jsonify({"message": "Data from backend"})
 
-# Run the app only if this script is executed directly
 if __name__ == '__main__':
     app.run(debug=True)

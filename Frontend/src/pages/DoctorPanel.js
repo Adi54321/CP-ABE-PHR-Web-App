@@ -58,7 +58,7 @@ const DoctorPanel = () => {
 
     return (
         <div className="doctor-panel">
-            <h1>Doctor Panel</h1>
+            <h1>Doctor Panel</h1>``
             {editMode ? (
                 <form onSubmit={handleEditSubmit}>
                     <label htmlFor="name">Name:</label>

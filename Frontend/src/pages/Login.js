@@ -4,13 +4,42 @@ import '../css/LoginStyle.css'; // External CSS for styling
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    // Handle login logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
-  };
+    //sending the email password in a payload
+    const payload = {email, password};
+    
+    try{
+      // API call to the flask backend
+        const response = await fetch('http://127.0.0.1:5000/login', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(payload),
+        });
+
+      //parse the response, uses the login function in app.py to check if user exist
+        const result = await response.json();
+
+      if (response.ok) {
+        console.log('Successful Login:', result)
+        //logic for if the login is successful and open the respected webpages depending on the role of the user
+        if(result.role === 'doctor'){
+          window.location.href = '/doctor-dashboard'; // Redirect to doctor dashboard
+        } else if(result.role === 'patient'){
+          window.location.href = '/patient-dashboard'; // Redirect to doctor dashboard
+        }
+        else{
+          //in the case where login fails
+          setErrorMessage(result.error || 'Invalid email or password');
+        }
+      }
+      }catch(error){
+        console.log('login failed', error);
+        setErrorMessage('An error has occurred. Please try again later');
+      }
+    };
 
   return (
     <div className="login-container">
@@ -35,6 +64,7 @@ const LoginPage = () => {
               required
             />
           </div>
+          {errorMessage && <p className='error-message'>{errorMessage}</p>}
           <button type="submit" className="login-button">Login</button>
         </form>
       </div>

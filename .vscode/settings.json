@@ -1,0 +1,18 @@
+{
+    "python.analysis.extraPaths": [
+        "./Backend/charm"
+    ],
+    "cSpell.words": [
+        "abenc",
+        "ciphertext",
+        "cpabe",
+        "funciton",
+        "jsonify",
+        "keygen",
+        "pairinggroup",
+        "patientdb",
+        "policytree",
+        "userdatabase",
+        "userdb"
+    ]
+}
