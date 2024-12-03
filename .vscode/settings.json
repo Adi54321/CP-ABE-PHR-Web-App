@@ -9,8 +9,10 @@
         "funciton",
         "jsonify",
         "keygen",
+        "OAEP",
         "pairinggroup",
         "patientdb",
+        "PKCS",
         "policytree",
         "userdatabase",
         "userdb"

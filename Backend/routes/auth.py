@@ -112,11 +112,23 @@ def doctor_info():
 
     #execute the query
     try:
+        #first, retrieve the user_id from UserLogin based on the provided email
+        cursor.execute("SELECT id FROM UserLogin WHERE email = ?", (email,))
+        user = cursor.fetchone()
+
+        if not user:
+            #if the user with the given email is not found, return an error
+            return jsonify({'error': 'User not found. Please register the user first.'}), 400
+        
+        user_id = user[0]
+
+        print(user_id)
+
         cursor.execute('''
-            INSERT INTO DoctorInfo (email, specialization, medical_license_number, years_of_experience, 
-                                    hospital_affiliation, contact_info, preferred_contact_method, languages_spoken, DOB)
+            INSERT INTO DoctorInfo (user_id, specialization, medical_license_number, years_of_experience, 
+                                    hospital_affiliation, contact_info, preferred_contact_method, languages_spoken, dob)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        ''', (email, specialization, medical_license_number, years_of_experience, hospital_affiliation, 
+        ''', (user_id, specialization, medical_license_number, years_of_experience, hospital_affiliation, 
               contact_info, preferred_contact_method, languages_spoken, DOB_))
         #commit to the database
         db.commit()
@@ -126,17 +138,10 @@ def doctor_info():
     except Exception as e:
         #undo the transaction if there is an error
         db.rollback()
-        print(data) #debugging purposes
+        for input in data:
+            print(input + '\n')
         print('Failed to register doctor information') #debugging purposes
         return jsonify({'error': 'Failed to register doctor information!'}), 500
 
 
-#in development 
-@auth_bp.route('/submit-patient-data', methods = ['POST'])
-@cross_origin()
-def submit_patient_data():
 
-    #get the data from the request
-    data = request.get_json()
-
-    

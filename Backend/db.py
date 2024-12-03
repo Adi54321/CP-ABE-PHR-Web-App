@@ -2,7 +2,7 @@ import sqlite3
 from flask import g
 import os
 
-#create a path to the users database 
+#create a path to the users and patient database 
 userdatabase = os.path.join(os.path.dirname(__file__), 'Database', 'users.db')
 patientdb = os.path.join(os.path.dirname(__file__),'Database', 'patient_info.db')
 
