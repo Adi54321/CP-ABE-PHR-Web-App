@@ -4,14 +4,15 @@ import os
 
 #create a path to the users and patient database 
 userdatabase = os.path.join(os.path.dirname(__file__), 'Database', 'users.db')
-# patientdb = os.path.join(os.path.dirname(__file__),'Database', 'patient_info.db')
 
+#get the userdb
 def get_userdb():
     if 'db' not in g:
         g.db = sqlite3.connect(userdatabase)
         g.db.row_factory = sqlite3.Row
     return g.db
 
+#close the db
 def close_db(e=None):
     db = g.pop('db', None)
     if db is not None:

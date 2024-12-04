@@ -23,7 +23,12 @@ const LoginPage = () => {
         const result = await response.json();
 
       if (response.ok) {
+        //successful login
         console.log('Successful Login:', result)
+
+        //set user email in local storage
+        localStorage.setItem('userEmail', email)
+
         //logic for if the login is successful and open the respected webpages depending on the role of the user
         if(result.role === 'doctor'){
           window.location.href = '/doctor-dashboard'; // Redirect to doctor dashboard

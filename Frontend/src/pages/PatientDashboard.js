@@ -21,6 +21,19 @@ function PatientDashboard() {
         currentMedications: ''
     });
 
+    //get logged-in user's Email from local storage 
+    const [userEmail, setUserEmail] = useState('');
+
+    useEffect(() => {
+        const email = localStorage.getItem('userEmail');
+        if (email) {
+            setUserEmail(email);
+        } else {
+            //redirect to login if no email found in local storage
+            navigate('/login');
+        }
+    }, [navigate]);
+
     //fetch list of doctors for the dropdown list
     useEffect(() => {
         fetch('http://localhost:5000/cpabe/doctors') 
@@ -71,12 +84,12 @@ function PatientDashboard() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    patient_email: "DOE@gmail.com", //need to figure out way to not hardcode email
+                    patient_email: userEmail, 
                     doctor_id: selectedDoctorId,
                     patient_data: JSON.stringify(patientData)
                 }),
             });
-
+            console.log('successful', userEmail)
             const result = await response.json();
             if (response.ok) {
                 alert('Data encrypted and saved successfully!');
